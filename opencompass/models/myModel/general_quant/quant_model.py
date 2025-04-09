@@ -29,14 +29,16 @@ class LlamaForCausalLM_GeneralQuant(HuggingFaceCausalLM):
                     model_kwargs: dict,
                     peft_path: Optional[str] = None):
         
+
+
         config_kvcache_settings = {
             "k_bits": None,
             "v_bits": None,
-            "k_quant_dim": None,
+            "k_quant_dim": None, # [bsz, num_heads, seq_len, head_dim] KIVI: k->head_dim*numheads v: seq_len
             "v_quant_dim": None,
-            "global_residual_length": None,
-            "local_residual_length": None,
-            "key_group_size": -1,
+            "global_residual_length": None, # global_size
+            "local_residual_length": None, # local_size
+            "key_group_size": -1, # seq_len -> group_size
             "value_group_size": -1,
             "rope_scaling": None,
         }

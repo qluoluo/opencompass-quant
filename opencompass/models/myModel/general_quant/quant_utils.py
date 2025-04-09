@@ -69,9 +69,9 @@ def dequantize(x_global, x_local, x_quantized, scale, zero_point, group_size=-1)
 if __name__ == "__main__":
     # 创建一个随机张量
     # tensor = torch.randn((2, 3))
-    tensor = torch.tensor([[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]])
-    nbit = 2
-    dim = -2  # 假设我们沿着第二个维度进行量化
+    tensor = torch.tensor([[1.0, 2.2, 3.0], [4.0, 5.6, 6.2]])
+    nbit = 4
+    dim = -1  # 假设我们沿着第二个维度进行量化
 
     # 量化
     quantized_tensor, scale, zero_point = quantize_tensor(tensor, nbit=nbit, dim=dim)
