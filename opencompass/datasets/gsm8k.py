@@ -16,7 +16,12 @@ from .base import BaseDataset
 class GSM8KDataset(BaseDataset):
 
     @staticmethod
-    def load(path):
+    def load(path, num_samples=-1, random_seed=42):
+        import random
+        import numpy as np
+        random.seed(random_seed)
+        np.random.seed(random_seed)
+
         path = get_data_path(path)
         if environ.get('DATASET_SOURCE') == 'ModelScope':
             from modelscope import MsDataset
@@ -30,6 +35,9 @@ class GSM8KDataset(BaseDataset):
                     for line in f:
                         line = json.loads(line.strip())
                         dataset.append(line)
+                # 添加随机抽样逻辑
+                if num_samples > 0 and len(dataset) > 0:
+                    dataset = random.sample(dataset, num_samples)  # 无放回随机抽样
                 datasets[split] = Dataset.from_list(dataset)
             dataset = DatasetDict(datasets)
         return dataset

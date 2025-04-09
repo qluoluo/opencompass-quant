@@ -49,3 +49,20 @@ from .yayi_api import Yayi  # noqa: F401
 from .yi_api import YiAPI  # noqa: F401
 from .zhipuai_api import ZhiPuAI  # noqa: F401
 from .zhipuai_v2_api import ZhiPuV2AI  # noqa: F401
+
+# conda activate general_quant
+from .myModel.hf_strip_model import HuggingFaceCausalLM_Strip
+from .myModel.general_quant.quant_model import LlamaForCausalLM_GeneralQuant
+# from .myModel.zipcache.quant_model import LlamaForCausalLM_ZipCacheQuant
+from .myModel.scale_quant.quant_model import LlamaForCausalLM_ScaleQuant
+# from .myModel.step_quant.quant_model import LlamaForCausalLM_StepQuant
+
+# from .myModel.unrope_quant.quant_model import LlamaForCausalLM_UnropeQuan
+# from .myModel.qjl.qjl_llama3_model import QJL_LlamaForCausalLM
+# from .myModel.rotatekv
+
+# from .myModel.scale_quant_old.quant_model import LlamaForCausalLM_ScaleQuant
+
+# from .myModel.kivi.kivi_model import KIVI_LlamaForCausalLM
+
+from .myModel.performer_replace.performer_replace_model import PerformerReplaced_LlamaForCausalLM

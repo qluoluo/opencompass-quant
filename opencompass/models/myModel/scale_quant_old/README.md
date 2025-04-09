@@ -1,0 +1,1 @@
+conda create -n general_quant python=3.10
